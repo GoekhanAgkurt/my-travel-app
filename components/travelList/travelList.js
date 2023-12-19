@@ -1,3 +1,4 @@
+import Link from "next/link";
 import TravelCard from "../travelCard/travelCard";
 
 export default function TravelList({ travels }) {
@@ -11,6 +12,7 @@ export default function TravelList({ travels }) {
           <TravelCard key={travel.id} travel={travel} />
         ))}
       </ul>
+      <Link href="/create"> add new Travel</Link>
     </>
   );
 }

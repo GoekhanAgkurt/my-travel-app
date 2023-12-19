@@ -7,11 +7,18 @@ export default function App({ Component, pageProps }) {
     defaultValue: initialTravels,
   });
 
-  console.log("das sind die travels", travels);
+  function handleAddTravel(newTravel) {
+    setTravels([...travels, newTravel]);
+  }
+
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} travels={travels} />
+      <Component
+        {...pageProps}
+        travels={travels}
+        onAddTravel={handleAddTravel}
+      />
     </>
   );
 }
