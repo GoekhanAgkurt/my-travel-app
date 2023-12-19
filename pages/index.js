@@ -1,4 +1,4 @@
-import TravelList from "./components/travelList/travelList";
+import TravelList from "../components/travelList/travelList";
 
 export default function HomePage({ travels }) {
   console.log("das sind die Index travels", travels);
