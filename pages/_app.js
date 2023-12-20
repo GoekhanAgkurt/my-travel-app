@@ -11,6 +11,10 @@ export default function App({ Component, pageProps }) {
     setTravels([...travels, newTravel]);
   }
 
+  function handleDeleteTravel(id) {
+    setTravels(travels.filter((travel) => travel.id !== id));
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -18,6 +22,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         travels={travels}
         onAddTravel={handleAddTravel}
+        onDeleteTravel={handleDeleteTravel}
       />
     </>
   );
