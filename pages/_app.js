@@ -15,6 +15,14 @@ export default function App({ Component, pageProps }) {
     setTravels(travels.filter((travel) => travel.id !== id));
   }
 
+  function handleEditTravel(editedTravel) {
+    setTravels(
+      travels.map((travel) =>
+        travel.id === editedTravel.id ? editedTravel : travel
+      )
+    );
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -23,6 +31,7 @@ export default function App({ Component, pageProps }) {
         travels={travels}
         onAddTravel={handleAddTravel}
         onDeleteTravel={handleDeleteTravel}
+        onEditTravel={handleEditTravel}
       />
     </>
   );
