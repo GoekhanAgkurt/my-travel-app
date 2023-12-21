@@ -5,7 +5,7 @@ export default function TravelList({ travels, onDeleteTravel }) {
   console.log("das sind die List travels", travels);
 
   return (
-    <>
+    <main>
       <h2>Deine Travel Liste</h2>
       <ul>
         {travels.map((travel) => (
@@ -17,6 +17,6 @@ export default function TravelList({ travels, onDeleteTravel }) {
         ))}
       </ul>
       <Link href="/create"> add new Travel</Link>
-    </>
+    </main>
   );
 }
