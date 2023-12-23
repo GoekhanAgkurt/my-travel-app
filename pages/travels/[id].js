@@ -1,7 +1,9 @@
 import Link from "next/link";
+import styled from "styled-components";
 
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Icon from "@/components/icons/icons";
 
 export default function Detailspage({ travels, onDeleteTravel, onEditTravel }) {
   const router = useRouter(); //  (next.js) greift auf die Informationen der aktuellen Route
@@ -37,49 +39,130 @@ export default function Detailspage({ travels, onDeleteTravel, onEditTravel }) {
   }
 
   return (
-    <>
+    <main>
       {!isEdit ? (
         <>
-          <h3>Details Page</h3>
-          <p>{travel.title}</p>
+          <Link href="/">
+            <Icon variant="arrowBack" />
+          </Link>
+          <h2>{travel.title}</h2>
           <p>{travel.description}</p>
-          <p>{travel.local}</p>
+          <p>{travel.location}</p>
 
-          <Link href="/"> Back to list</Link>
-          <button onClick={() => setIsEdit(true)}>Edit</button>
-          <button onClick={deleteTravel}>Delete</button>
+          <StyledButtonsBox>
+            <StyledEditButton onClick={() => setIsEdit(true)}>
+              Edit
+            </StyledEditButton>
+            <StyledSubmitButton onClick={deleteTravel}>
+              Delete
+            </StyledSubmitButton>
+          </StyledButtonsBox>
         </>
       ) : (
-        <form onSubmit={editTravel}>
-          <label>Title</label>
-          <input
-            type="text"
-            placeholder="z.B. Karibik Urlaub"
-            id="title"
-            name="title"
-            defaultValue={travel.title}
-          />
+        <>
+          <h2>Please, fill the fields</h2>
 
-          <label>Description</label>
-          <input
-            type="text"
-            placeholder="z.B. Schwimmen im Meer"
-            id="description"
-            name="description"
-            defaultValue={travel.description}
-          />
+          <StyledForm onSubmit={editTravel}>
+            <StyledLabel>Title</StyledLabel>
+            <StyledInputField
+              type="text"
+              placeholder="z.B. Karibik Urlaub"
+              id="title"
+              name="title"
+              defaultValue={travel.title}
+            />
 
-          <label>Location</label>
-          <input
-            type="text"
-            placeholder="z.B. Nordsee, Deutschland"
-            id="location"
-            name="location"
-            defaultValue={travel.location}
-          />
-          <button type="submit">Save changes</button>
-        </form>
+            <StyledLabel>Description</StyledLabel>
+            <StyledInputField
+              type="text"
+              placeholder="z.B. Schwimmen im Meer"
+              id="description"
+              name="description"
+              defaultValue={travel.description}
+            />
+
+            <StyledLabel>Location</StyledLabel>
+            <StyledInputField
+              type="text"
+              placeholder="z.B. Nordsee, Deutschland"
+              id="location"
+              name="location"
+              defaultValue={travel.location}
+            />
+
+            <StyledButtonsBox>
+              <StyledCancelLink href="/"> Cancel </StyledCancelLink>
+
+              <StyledSubmitButton type="submit">
+                Save changes
+              </StyledSubmitButton>
+            </StyledButtonsBox>
+          </StyledForm>
+        </>
       )}
-    </>
+    </main>
   );
 }
+
+const StyledButtonsBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const StyledEditButton = styled.button`
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 15px;
+  background-color: white;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 49.5%;
+  text-decoration: none;
+`;
+
+const StyledSubmitButton = styled.button`
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 15px;
+  background-color: black;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  width: 49.5%;
+  text-decoration: none;
+`;
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+
+const StyledInputField = styled.input`
+  padding: 10px;
+  font-size: 16px;
+`;
+
+const StyledLabel = styled.label`
+  margin-top: 15px;
+`;
+
+const StyledCancelLink = styled(Link)`
+  color: black;
+  font-weight: 600;
+
+  padding: 15px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid black;
+
+  width: 49.5%;
+  text-decoration: none;
+  &:hover {
+    border: 1px solid blue;
+    color: blue;
+  }
+`;

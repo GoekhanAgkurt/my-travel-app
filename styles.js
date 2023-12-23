@@ -19,7 +19,30 @@ export default createGlobalStyle`
 
   main {
     width: 90%;
-    margin: 0 auto;
-    background-color: gray;
+    margin: 20px auto;
+  }
+
+  h2 {
+    font-size: 30px;
+    margin: 0;
+    color: black;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin: 0;
+    color: black;
+  }
+
+  p {
+    font-size: 16px;
+    margin-block-end: 5px;
+    color: black;
+  }
+
+ 
+
+  a {
+    text-decoration: none;
   }
 `;
