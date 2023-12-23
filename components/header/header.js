@@ -13,7 +13,7 @@ export default function Header() {
 const StyledHeader = styled.header`
   width: 100%;
   margin: 0;
-  padding: 5px 15px;
+  padding: 15px 15px;
   border-bottom: 1px solid black;
   display: flex;
   flex-direction: inherit;

@@ -41,10 +41,11 @@ const StyledMenu = styled.section`
   background-color: white;
   width: 100%;
   height: 80%;
+  z-index: 2;
 `;
 
 const StyledBurgerButton = styled.button`
-  z-index: 2;
+  z-index: 3;
   background: none;
   border: none;
 `;
@@ -57,6 +58,7 @@ const StyledMenuUl = styled.ul`
 
 const StyledMenuLi = styled.li`
   color: blue;
+  line-height: 2;
   /* color: var(--primaryColor); */
   &:hover {
     text-decoration: underline;
