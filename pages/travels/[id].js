@@ -17,8 +17,14 @@ export default function Detailspage({ travels, onDeleteTravel, onEditTravel }) {
   if (!travel) return "no travel found";
 
   function deleteTravel() {
-    onDeleteTravel(id);
-    router.push("/");
+    const shouldDelete = window.confirm(
+      `Bist du sicher, dass du ${travel.title} löschen möchtest?`
+    );
+
+    if (shouldDelete) {
+      onDeleteTravel(id);
+      router.push("/");
+    }
   }
 
   function editTravel(event) {

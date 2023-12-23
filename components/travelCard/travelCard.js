@@ -1,8 +1,22 @@
 import Link from "next/link";
 import styled from "styled-components";
 import Icon from "../icons/icons";
+import { useRouter } from "next/router";
 
 export default function TravelCard({ travel, onDeleteTravel }) {
+  const router = useRouter(); //  (next.js) greift auf die Informationen der aktuellen Route
+
+  function deleteTravel() {
+    const shouldDelete = window.confirm(
+      `Bist du sicher, dass du ${travel.title} löschen möchtest?`
+    );
+
+    if (shouldDelete) {
+      onDeleteTravel(travel.id);
+      router.push("/");
+    }
+  }
+
   return (
     <>
       <StyledArticle>
@@ -11,7 +25,7 @@ export default function TravelCard({ travel, onDeleteTravel }) {
             <h3>{travel.title}</h3>
             <p>{travel.description}</p>
           </Link>
-          <StyledDeleteButton onClick={() => onDeleteTravel(travel.id)}>
+          <StyledDeleteButton onClick={deleteTravel}>
             <Icon variant="delete" size={20} />
           </StyledDeleteButton>
         </li>
@@ -35,4 +49,5 @@ const StyledDeleteButton = styled.button`
   position: absolute;
   top: 15px;
   right: 10px;
+  cursor: pointer;
 `;
