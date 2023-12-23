@@ -3,11 +3,9 @@ import TravelCard from "../travelCard/travelCard";
 import styled from "styled-components";
 
 export default function TravelList({ travels, onDeleteTravel }) {
-  console.log("das sind die List travels", travels);
-
   return (
-    <main>
-      <h2>Deine Travel Liste</h2>
+    <>
+      <h2>Deineee Travel Liste</h2>
       <StyledUl>
         {travels.map((travel) => (
           <TravelCard
@@ -18,13 +16,13 @@ export default function TravelList({ travels, onDeleteTravel }) {
         ))}
         <StyledCreateLink href="/create"> add new Travel</StyledCreateLink>
       </StyledUl>
-    </main>
+    </>
   );
 }
 
 const StyledUl = styled.ul`
   list-style: none;
-  margin: 0;
+  margin-block: 10px;
   padding: 0;
 `;
 
