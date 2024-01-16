@@ -2,16 +2,22 @@ import Link from "next/link";
 import TravelCard from "../travelCard/travelCard";
 import styled from "styled-components";
 
-export default function TravelList({ travels, onDeleteTravel }) {
+export default function TravelList({
+  favorites,
+  travels,
+  onDeleteTravel,
+  onToggleFavorites,
+}) {
   return (
     <>
-      <h2>Deineee Travel Liste</h2>
       <StyledUl>
         {travels.map((travel) => (
           <TravelCard
             key={travel.id}
             travel={travel}
+            favorites={favorites}
             onDeleteTravel={onDeleteTravel}
+            onToggleFavorites={onToggleFavorites}
           />
         ))}
         <StyledCreateLink href="/create"> add new Travel</StyledCreateLink>
