@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
-import Icon from "../icons/icons";
+import Icon from "./icons";
 import { useState } from "react";
 
 export default function TravelCard({

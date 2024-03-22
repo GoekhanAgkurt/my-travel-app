@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Icon from "../icons/icons";
+import Icon from "./icons";
 
 export default function BurgerMenu() {
   const [menuOpen, setMenuOpen] = useState(false);

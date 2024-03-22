@@ -1,5 +1,5 @@
-import Icon from "@/components/icons/icons";
-import TravelList from "../components/travelList/travelList";
+import Icon from "@/components/icons";
+import TravelList from "../components/travelList";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 

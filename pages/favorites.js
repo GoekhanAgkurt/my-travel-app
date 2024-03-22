@@ -1,9 +1,7 @@
-import FavTravelCard from "@/components/FavTravelCard/FavTravelcard";
-import TravelCard from "@/components/travelCard/travelCard";
+import TravelCard from "@/components/travelCard";
 import styled from "styled-components";
 
 export default function favorites({
-  travel,
   favorites,
   onToggleFavorites,
   onDeleteTravel,
@@ -20,12 +18,6 @@ export default function favorites({
             onDeleteTravel={onDeleteTravel}
             onToggleFavorites={onToggleFavorites}
           />
-          //   <FavTravelCard
-          //     key={favorite.id}
-          //     travel={travel}
-          //     favorite={favorite}
-          //     onToggleFavorites={onToggleFavorites}
-          //   />
         ))}
       </StyledUl>
     </main>

@@ -1,8 +1,8 @@
 import { initialTravels } from "@/lib/data";
 import GlobalStyle from "../styles";
 import useLocalStorageState from "use-local-storage-state";
-import Header from "@/components/header/header";
-import Navigation from "@/components/navigation/navigation";
+import Header from "@/components/header";
+import Navigation from "@/components/navigation";
 
 export default function App({ Component, pageProps }) {
   const [travels, setTravels] = useLocalStorageState("prevFavorites", {
@@ -19,6 +19,7 @@ export default function App({ Component, pageProps }) {
 
   function handleDeleteTravel(id) {
     setTravels(travels.filter((travel) => travel.id !== id));
+    setFavorites(favorites.filter((favorite) => favorite.id !== id));
   }
 
   function handleEditTravel(editedTravel) {

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import TravelCard from "../travelCard/travelCard";
+import TravelCard from "./travelCard";
 import styled from "styled-components";
 
 export default function TravelList({
@@ -8,6 +8,10 @@ export default function TravelList({
   onDeleteTravel,
   onToggleFavorites,
 }) {
+  const favoriteTravels = travels.filter((travel) =>
+    favorites.includes(travel.id)
+  );
+
   return (
     <>
       <StyledUl>
@@ -21,6 +25,17 @@ export default function TravelList({
           />
         ))}
         <StyledCreateLink href="/create"> add new Travel</StyledCreateLink>
+      </StyledUl>
+      <StyledUl>
+        {favoriteTravels.map((travel) => (
+          <TravelCard
+            key={travel.id}
+            travel={travel}
+            favorites={favorites}
+            onDeleteTravel={onDeleteTravel}
+            onToggleFavorites={onToggleFavorites}
+          />
+        ))}
       </StyledUl>
     </>
   );
