@@ -1,11 +1,17 @@
-import Icon from "@/components/icons/icons";
-import TravelList from "../components/travelList/travelList";
+import Icon from "@/components/icons";
+import TravelList from "../components/travelList";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
-export default function HomePage({ travels, onDeleteTravel, onEditTravel }) {
+export default function HomePage({
+  travels,
+  favorites,
+  onDeleteTravel,
+  onEditTravel,
+  onToggleFavorites,
+}) {
   const [searchTravel, setSearchTravel] = useState("");
-  const [foundTravel, setFoundTravel] = useState();
+  const [foundTravel, setFoundTravel] = useState([]);
 
   useEffect(() => {
     setFoundTravel(
@@ -17,18 +23,22 @@ export default function HomePage({ travels, onDeleteTravel, onEditTravel }) {
 
   return (
     <main>
+      <h2>Deine Travel Liste</h2>
+
       <StyledFormSearchbar>
         <Icon variant="search" />
         <StyledInput
           type="text"
-          placeholder="Search forrr travels"
+          placeholder="Search travel"
           onChange={(event) => setSearchTravel(event.target.value)}
         ></StyledInput>
       </StyledFormSearchbar>
       <TravelList
-        travels={searchTravel.length === 0 ? travels : foundTravel}
+        travels={foundTravel}
+        favorites={favorites}
         onDeleteTravel={onDeleteTravel}
         onEditTravel={onEditTravel}
+        onToggleFavorites={onToggleFavorites}
       />
     </main>
   );

@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 import { useRouter } from "next/router";
 import { useState } from "react";
-import Icon from "@/components/icons/icons";
+import Icon from "@/components/icons";
 
 export default function Detailspage({ travels, onDeleteTravel, onEditTravel }) {
   const router = useRouter(); //  (next.js) greift auf die Informationen der aktuellen Route
   const { isReady } = router; // (next.js) wartet bis die router-initialisierung abgeschlossen ist
-  const { id } = router.query; // speichert die id Nummer von z.b. /meine-seite?id=123 aus der aktuellen URL in id
+  const { id } = router.query; // speichert die id Nr von z.b. /my-site?id=123 aus der aktuellen URL in id
 
   const [isEdit, setIsEdit] = useState(false);
 

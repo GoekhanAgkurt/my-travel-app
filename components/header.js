@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BurgerMenu from "../burgerMenu/burgerMenu";
+import BurgerMenu from "./burgerMenu";
 
 export default function Header() {
   return (
